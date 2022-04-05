@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionModel>
+	<Runtime>
+		<Import assembly="VisualStudioMac.OneClickToOpenFile.dll" />
+	</Runtime>
+
+	<!-- ProjectPad NodeBuilders -->
+	<Extension path="/MonoDevelop/Ide/Pads/ProjectPad">
+		<NodeBuilder class="VisualStudioMac.OneClickToOpenFile.OneClickFileNodeBuilderExt" />
+	</Extension>
+</ExtensionModel>
