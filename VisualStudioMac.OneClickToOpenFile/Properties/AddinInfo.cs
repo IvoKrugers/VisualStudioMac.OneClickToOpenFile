@@ -14,8 +14,5 @@ using VisualStudioMac.OneClickToOpenFile;
 [assembly: AddinAuthor("Ivo Krugers")]
 [assembly: AddinUrl("https://github.com/IvoKrugers/EssentialsAddin")]
 
-//[assembly: AddinDependency("::MonoDevelop.Core", MonoDevelop.BuildInfo.Version)]
-//[assembly: AddinDependency("::MonoDevelop.Ide", MonoDevelop.BuildInfo.Version)]
-
-[assembly: AddinDependency("Core", "17.0")]
-[assembly: AddinDependency("Ide", "17.0")]
+[assembly: AddinDependency("::MonoDevelop.Core", MonoDevelop.BuildInfo.Version)]
+[assembly: AddinDependency("::MonoDevelop.Ide", MonoDevelop.BuildInfo.Version)]

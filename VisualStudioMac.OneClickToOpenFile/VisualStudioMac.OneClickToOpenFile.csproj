@@ -19,4 +19,7 @@
         <LogicalName>VisualStudioMac.OneClickToOpenFile.addin.xml</LogicalName>
         </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MonoDevelop.References.proj" />
+  </ItemGroup>
 </Project>
