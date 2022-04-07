@@ -10,21 +10,20 @@ namespace VisualStudioMac.OneClickToOpenFile
     {
         public override bool CanBuildNode(Type dataType)
         {
-            var canBuild =
-                typeof(ProjectFolder).IsAssignableFrom(dataType) ||
-                typeof(ProjectFile).IsAssignableFrom(dataType) ||
-                dataType.Name == "CSharpProject";
+            var canBuild = typeof(ProjectFile).IsAssignableFrom(dataType);
+
             return canBuild;
         }
 
         public override void BuildNode(ITreeBuilder treeBuilder, object dataObject, NodeInfo nodeInfo)
         {
-            ProjectFile file = (ProjectFile)dataObject;
-            var ext = Path.GetExtension(file.FilePath);
-
-            if (Constants.ExcludedExtensionsFromOneClick.FindIndex((s) => s == ext) == -1)
+            if (dataObject is ProjectFile file)
             {
-                nodeInfo.Label = $"{nodeInfo.Label} {Constants.OneClickChar}";
+                var ext = Path.GetExtension(file.FilePath);
+                if (Constants.ExcludedExtensionsFromOneClick.FindIndex((s) => s == ext) == -1)
+                {
+                    nodeInfo.Label = $"{nodeInfo.Label} {Constants.OneClickChar}";
+                }
             }
         }
 
