@@ -4,7 +4,7 @@ using MonoDevelop.Ide;
 using MonoDevelop.Ide.Gui.Components;
 using MonoDevelop.Projects;
 
-namespace VisualStudioMac.OneClickToOpenFile
+namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers.Node
 {
     public class OneClickNodeCommandHandler : NodeCommandHandler
     {

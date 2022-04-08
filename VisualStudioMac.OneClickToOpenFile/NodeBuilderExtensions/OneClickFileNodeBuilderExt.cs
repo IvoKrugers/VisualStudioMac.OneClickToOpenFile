@@ -1,19 +1,15 @@
 ﻿using System;
 using System.IO;
 using MonoDevelop.Ide.Gui.Components;
-using MonoDevelop.Ide.Gui.Pads.ProjectPad;
 using MonoDevelop.Projects;
+using VisualStudioMac.OneClickToOpenFile.CommandHandlers.Node;
 
-namespace VisualStudioMac.OneClickToOpenFile
+namespace VisualStudioMac.OneClickToOpenFile.NodeBuilderExtensions
 {
     public class OneClickFileNodeBuilderExt : NodeBuilderExtension
     {
         public override bool CanBuildNode(Type dataType)
-        {
-            var canBuild = typeof(ProjectFile).IsAssignableFrom(dataType);
-
-            return canBuild;
-        }
+            => typeof(ProjectFile).IsAssignableFrom(dataType);
 
         public override void BuildNode(ITreeBuilder treeBuilder, object dataObject, NodeInfo nodeInfo)
         {
@@ -22,7 +18,10 @@ namespace VisualStudioMac.OneClickToOpenFile
                 var ext = Path.GetExtension(file.FilePath);
                 if (Constants.ExcludedExtensionsFromOneClick.FindIndex((s) => s == ext) == -1)
                 {
-                    nodeInfo.Label = $"{nodeInfo.Label} {Constants.OneClickChar}";
+                    if (!nodeInfo.Label.Contains(Constants.OneClickChar))
+                    {
+                        nodeInfo.Label = $"{nodeInfo.Label} {Constants.OneClickChar}";
+                    }
                 }
             }
         }

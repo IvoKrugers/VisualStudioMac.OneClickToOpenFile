@@ -6,6 +6,6 @@
 
 	<!-- ProjectPad NodeBuilders -->
 	<Extension path="/MonoDevelop/Ide/Pads/ProjectPad">
-		<NodeBuilder class="VisualStudioMac.OneClickToOpenFile.OneClickFileNodeBuilderExt" />
+		<NodeBuilder class="VisualStudioMac.OneClickToOpenFile.NodeBuilderExtensions.OneClickFileNodeBuilderExt" />
 	</Extension>
 </ExtensionModel>
