@@ -22,5 +22,15 @@ namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers.Node
                 }
             }
         }
+
+        public override void OnRenameStarting(ref string startingText, ref int selectionStart, ref int selectionLength)
+        {
+            base.OnRenameStarting(ref startingText, ref selectionStart, ref selectionLength);
+        }
+
+        public override void OnRenameStarting(ref int selectionStart, ref int selectionLength)
+        {
+            base.OnRenameStarting(ref selectionStart, ref selectionLength);
+        }
     }
 }
