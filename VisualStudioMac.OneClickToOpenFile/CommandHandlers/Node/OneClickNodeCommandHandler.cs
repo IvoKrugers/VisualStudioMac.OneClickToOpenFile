@@ -4,7 +4,7 @@ using MonoDevelop.Ide;
 using MonoDevelop.Ide.Gui.Components;
 using MonoDevelop.Projects;
 
-namespace VisualStudioMac.OneClickToOpenFile
+namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers.Node
 {
     public class OneClickNodeCommandHandler : NodeCommandHandler
     {
@@ -21,6 +21,16 @@ namespace VisualStudioMac.OneClickToOpenFile
                         IdeApp.Workbench.OpenDocument(f.FilePath, project: null);
                 }
             }
+        }
+
+        public override void OnRenameStarting(ref string startingText, ref int selectionStart, ref int selectionLength)
+        {
+            base.OnRenameStarting(ref startingText, ref selectionStart, ref selectionLength);
+        }
+
+        public override void OnRenameStarting(ref int selectionStart, ref int selectionLength)
+        {
+            base.OnRenameStarting(ref selectionStart, ref selectionLength);
         }
     }
 }
