@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Gtk;
 using MonoDevelop.Ide.Gui.Components;
 using MonoDevelop.Projects;
 using VisualStudioMac.OneClickToOpenFile.CommandHandlers.Node;
@@ -18,10 +19,7 @@ namespace VisualStudioMac.OneClickToOpenFile.NodeBuilderExtensions
                 var ext = Path.GetExtension(file.FilePath);
                 if (Constants.ExcludedExtensionsFromOneClick.FindIndex((s) => s == ext) == -1)
                 {
-                    if (!nodeInfo.Label.Contains(Constants.OneClickChar))
-                    {
-                        nodeInfo.Label = $"{nodeInfo.Label} {Constants.OneClickChar}";
-                    }
+                    nodeInfo.SecondaryLabel = Constants.OneClickChar;
                 }
             }
         }
