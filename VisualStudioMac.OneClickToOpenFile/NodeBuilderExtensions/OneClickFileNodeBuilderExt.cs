@@ -19,7 +19,7 @@ namespace VisualStudioMac.OneClickToOpenFile.NodeBuilderExtensions
                 var ext = Path.GetExtension(file.FilePath);
                 if (Constants.ExcludedExtensionsFromOneClick.FindIndex((s) => s == ext) == -1)
                 {
-                    nodeInfo.SecondaryLabel = Constants.OneClickChar;
+                    nodeInfo.SecondaryLabel = $"{Constants.OneClickChar} {nodeInfo.SecondaryLabel}";
                 }
             }
         }
