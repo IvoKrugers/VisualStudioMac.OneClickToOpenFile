@@ -12,7 +12,7 @@ namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers.Node
         {
             base.OnItemSelected();
 
-            if (CurrentNode.DataItem is ProjectFile f)
+            if (CurrentNode.DataItem is ProjectFile f && Settings.OneClickToOpenFileEnabled)
             {
                 string ext = Path.GetExtension(f.FilePath);
                 if (Constants.ExcludedExtensionsFromOneClick.FindIndex((s) => s == ext) == -1)
