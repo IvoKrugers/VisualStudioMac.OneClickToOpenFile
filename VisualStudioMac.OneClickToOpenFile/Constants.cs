@@ -2,7 +2,6 @@
 {
     public static class Constants
     {
-        public const string Version = "17.3.1";
         public const string OneClickChar
 #if DEBUG
          = ">>";

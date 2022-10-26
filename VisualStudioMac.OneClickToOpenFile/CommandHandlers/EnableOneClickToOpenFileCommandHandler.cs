@@ -1,7 +1,7 @@
 ﻿using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide;
-using MonoDevelop.Ide.Gui.Components;
 using MonoDevelop.Ide.Gui.Pads;
+using VisualStudioMac.OneClickToOpenFile.Extensions;
 
 namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers
 {
@@ -24,33 +24,4 @@ namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers
             pad.RefreshTree();
         }
     }
-
-    public static class SolutionPadExtensions
-    {
-        public static void RefreshTree(this SolutionPad pad)
-        {
-            if (pad == null)
-                return;
-
-            var root = pad.GetRootNode();
-            if (root != null)
-            {
-                root.Expanded = false;
-                pad.GetTreeView().RefreshNode(root);
-            }
-        }
-
-        private static ITreeNavigator GetRootNode(this SolutionPad pad)
-            => pad.GetTreeView().GetRootNode();
-
-        private static ITreeNavigator GetRootNode(this ExtensibleTreeViewController treeview)
-        {
-            var pos = treeview.GetRootPosition();
-            return treeview.GetNodeAtPosition(pos);
-        }
-
-        private static ExtensibleTreeViewController GetTreeView(this SolutionPad pad)
-            => pad.Controller;
-    }
 }
-
