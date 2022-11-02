@@ -1,6 +1,7 @@
 ﻿using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide;
 using MonoDevelop.Ide.Gui.Pads;
+using NetworkExtension;
 using VisualStudioMac.OneClickToOpenFile.Extensions;
 
 namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers

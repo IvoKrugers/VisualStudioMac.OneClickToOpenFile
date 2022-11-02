@@ -32,4 +32,6 @@ namespace VisualStudioMac.OneClickToOpenFile.Extensions
         private static ExtensibleTreeViewController GetTreeView(this SolutionPad pad)
             => pad.Controller;
     }
+
+
 }
