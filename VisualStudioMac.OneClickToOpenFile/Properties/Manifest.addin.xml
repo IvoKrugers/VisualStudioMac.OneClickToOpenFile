@@ -11,7 +11,7 @@ by Ivo Krugers
 
 "
        category    = "IDE extensions"
-       version     = "17.4">
+       version     = "17.4.1">
 
 	<!--<Runtime>
 		<Import assembly="VisualStudioMac.OneClickToOpenFile.dll" />
