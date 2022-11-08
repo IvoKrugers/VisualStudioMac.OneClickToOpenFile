@@ -9,11 +9,25 @@
   </PropertyGroup>
 
    <ItemGroup>
-        <PackageReference Include="Microsoft.VisualStudioMac.Sdk" Version="17.0.0-preview.7955" />
+         <PackageReference Include="Microsoft.VisualStudioMac.Sdk" Version="17.0.0" />
 
         <Reference Include="Xamarin.Mac">
-            <HintPath>\Applications\Visual Studio %28Preview%http://29.app\Contents\MonoBundle\Xamarin.Mac.dll</HintPath>
+            <HintPath>\Applications\Visual Studio %28Preview%29.app\Contents\MonoBundle\Xamarin.Mac.dll</HintPath>
             <Private>False</Private>
         </Reference>
   </ItemGroup>
+   <ItemGroup>
+     <None Remove="VisualStudioMac.ExtensionHelper" />
+     <None Remove="VisualStudioMac.ExtensionsHelper" />
+     <None Remove="Extensions\" />
+     <None Remove="MonoDevelop.DotNetCore" />
+     <None Remove="MonoDevelop.MacPlatform" />
+     <None Remove="MonoDevelop.MonoMac" />
+     <None Remove="MonoDevelop.Xamarin.Addins.Core" />
+     <None Remove="MonoDevelop.Xamarin.Ide" />
+     <None Remove="MonoDevelop.Xamarin.Ide.Mac" />
+   </ItemGroup>
+   <ItemGroup>
+     <Folder Include="Extensions\" />
+   </ItemGroup>
 </Project>
