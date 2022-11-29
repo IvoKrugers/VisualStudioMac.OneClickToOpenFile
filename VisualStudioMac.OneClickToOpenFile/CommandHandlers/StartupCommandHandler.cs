@@ -11,6 +11,11 @@ namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers
             Settings.OneClickToOpenFileEnabled = false;
             IdeApp.Workspace.SolutionLoaded += Workspace_SolutionLoaded;
             IdeApp.Workspace.SolutionUnloaded += (s, e) => Settings.OneClickToOpenFileEnabled = false;
+
+            IdeApp.Workspace.FileAddedToProject += (s, e) => OnActivateOneClickAfterDelay();
+            IdeApp.Workspace.FileRemovedFromProject += (s, e) => OnActivateOneClickAfterDelay();
+            IdeApp.Workspace.FileRenamedInProject += (s, e) => OnActivateOneClickAfterDelay();
+
             //IdeApp.Workbench.LayoutChanged += Workbench_LayoutChanged;
             //IdeApp.Exiting += (s,e) => Settings.OneClickToOpenFileEnabled = false;
             //IdeApp.Workbench.GuiLocked += (s, e) => Settings.OneClickToOpenFileEnabled = false;
@@ -21,12 +26,26 @@ namespace VisualStudioMac.OneClickToOpenFile.CommandHandlers
         {
             if (e.Solution != null)
             {
-                Task.Delay(10000).ContinueWith(async t =>
-                {
-                    await t;
-                    Settings.OneClickToOpenFileEnabled = true;
-                });
+                ActivateOneClickAfterDelay();
             }
+        }
+
+        private void OnActivateOneClickAfterDelay()
+        {
+            if (Settings.OneClickToOpenFileEnabled)
+            {
+                Settings.OneClickToOpenFileEnabled = false;
+                ActivateOneClickAfterDelay();
+            }
+        }
+
+        private void ActivateOneClickAfterDelay()
+        {
+            Task.Delay(10000).ContinueWith(async t =>
+            {
+                await t;
+                Settings.OneClickToOpenFileEnabled = true;
+            });
         }
     }
 }
