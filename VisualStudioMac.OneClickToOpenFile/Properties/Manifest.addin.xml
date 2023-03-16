@@ -11,7 +11,7 @@ by Ivo Krugers
 
 "
        category    = "IDE extensions"
-       version     = "17.4.1">
+       version     = "17.5.1">
 
 	<!--<Runtime>
 		<Import assembly="VisualStudioMac.OneClickToOpenFile.dll" />
@@ -42,7 +42,7 @@ by Ivo Krugers
 
 	<!-- Main Tool Menu Entries -->
 	<Extension path="/MonoDevelop/Ide/MainMenu/Tools">
-		<SeparatorItem id="ExtensionSettingsSeparator" insertafter="MonoDevelop.Ide.Commands.EditCommands.MonodevelopPreferences"/>
-		<CommandItem id="VisualStudioMac.OneClickToOpenFile.EnableOneClickToOpenFileCommandHandler" insertafter="ExtensionSettingsSeparator" />
+		<SeparatorItem insertbefore="MonoDevelop.Ide.Commands.EditCommands.MonodevelopPreferences"/>
+		<CommandItem id="VisualStudioMac.OneClickToOpenFile.EnableOneClickToOpenFileCommandHandler" insertafter="OptionsSection" />
 	</Extension>
 </Addin>
